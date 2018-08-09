@@ -58,6 +58,9 @@ else
   out3 = "False!"
 end
 
+# or
+# out3 = pets.any? {|pet| pet[:breed] == "Dalmation"}
+
 puts ""
 puts "Answer 3:"
 p out3
@@ -65,6 +68,9 @@ p out3
 ## 4. Find the most expensive pet i.e. pet with the highest/maximum price
 maxprice = pets.map {|pet| pet[:price]}
 out4 = pets.find {|pet| pet[:price] == maxprice.max}
+
+# or
+# out4 = pets.max {|pet| pet[:price]}
 
 puts ""
 puts "Answer 4:"
@@ -74,12 +80,15 @@ p out4
 total_price = pets.map {|pet| pet[:price]}
 out5 = total_price.inject(0, :+)
 
+# or
+# out5 = pets.reduce(0) {|total, pet| total + pet[:price]}
+
 puts ""
 puts "Answer 5:"
 p out5
 
 ## 6. Change each pet so their price is 50% cheaper
-pets.each {|pet| pet[:price] = pet[:price]/2}
+pets.each {|pet| pet[:price] /= 2}
 
 out6 = pets
 
